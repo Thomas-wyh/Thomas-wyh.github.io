@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>DeepMAD: Mathematical Architecture Design for Deep Convolutional Neural Network</title>
+    <link href="./public/style.css" rel="stylesheet">
+  </head>
+
+
+  <body>
+      <div class="content">
+        <h1><strong>
+          DeepMAD: Mathematical Architecture Design for Deep Convolutional Neural Network
+        </strong></h1>
+        <p id="authors">
+          <span><a href=""></a></span>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Xuan Shen</a><sup style="margin-left: -7px;">2</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Yaohua Wang</a><sup style="margin-left: -7px;">1</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Ming Lin</a><sup style="margin-left: -7px;">1</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Yilun Huang</a><sup style="margin-left: -7px;">1</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Hao Tang</a><sup style="margin-left: -7px;">3</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Xiuyu Sun</a><sup style="margin-left: -7px;">1</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Yanzhi Wang</a><sup style="margin-left: -7px;">2</sup>
+          <br><br>
+          <span style="font-size: 22px;"><sup>1</sup>Alibaba Group</span>
+          &nbsp;&nbsp;&nbsp;
+          <span style="font-size: 22px"><sup>2</sup>NEU</span>
+          &nbsp;&nbsp;&nbsp;
+          <span style="font-size: 22px"><sup>2</sup>ETH</span>
+        </p>
+        <!-- <br>
+        <img src="figure/demo.png" class="teaser-gif" style="width:100%">
+        <br> -->
+        <p style="text-align: left; font-size: 18px;">
+          <em>
+            A novel method for Deep Convolutional Neural Network Architecture Design.
+          </em>
+        </p>
+        <p style="text-align: center; font-size: 20px;">
+          <a href="https://arxiv.org/pdf/2303.02165" target="_blank">[Paper]</a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="./public/deepmad.bib" target="_blank">[BibTeX]</a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="https://github.com/alibaba/lightweight-neural-architecture-search" target="_blank">[Code]</a>
+        </p>
+      </div>
+
+      <div class="content">
+        <h2 style="text-align: center;">Abstract</h2>
+        <p>
+          The rapid advances in Vision Transformer (ViT) refresh the state-of-the-art performances in various vision tasks, overshadowing the conventional CNN-based models. This ignites a few recent striking-back researches in the CNN world showing that pure CNN models can achieve as good performance as ViT models when carefully tuned. While being encouraging, designing such high-performance CNN models is challenging, requiring non-trivial prior knowledge of network design. To this end, a novel framework termed Mathematical Architecture Design for Deep CNN~(DeepMAD) is proposed to design high-performance CNN models in a principled way. In DeepMAD, a CNN network is modeled as an information processing system whose expressiveness and effectiveness can be analytically formulated by their structural parameters. Then a constrained mathematical programming (MP) problem is proposed to optimize these structural parameters. The MP problem can be easily solved by off-the-shelf MP solvers on CPUs with a small memory footprint. In addition, DeepMAD is a pure mathematical framework: no GPU or training data is required during network design. The superiority of DeepMAD is validated on multiple large-scale computer vision benchmark datasets. Notably, only using the conventional convolutional layers, DeepMAD achieves 82.8\% top-1 accuracy on ImageNet-1k with 4.5G FLOPs and 29M Params, outperforming ConvNeXt-Tiny (82.1%), Swin-Tiny (81.3%) and He's original ResNet-50 (77.4%) at the same scale.
+        </p>
+      </div>
+
+      <div class="content">
+        <h2>Results of DeepMAD </h2>
+        <p style="font-size: 18px">
+          Comparison between DeepMAD models, Swin and ConvNeXt on ImageNet-1k. DeepMAD achieves better performance than Swin and ConvNeXt with the same scales.
+        </p>
+        <img class="summary-img" src="figure/show1.png" style="width:50%;"><br><br>
+        <p style="font-size: 18px">
+          Effectiveness ρ v.s. top-1 accuracy and entropy of each generated model on CIFAR-100. The best model is marked by a star.
+          The entropy increases with ρ monotonically but the model accuracy does not. The optimal ρ∗ ≈ 0.5.
+        </p>
+        <img class="summary-img" src="figure/show2.png" style="width:50%;"><br><br>
+        <p style="font-size: 18px">
+          The architectures around ρ = {0.1, 0.5, 1.0} are selected and grouped by ρ. Kendall coefficient τ is used to measure the correlation.
+        </p>
+        <img class="summary-img" src="figure/show3.png" style="width:50%;"><br><br>
+        <p style="font-size: 18px">
+          DeepMAD v.s. ResNet on ImageNet-1K, using ResNet building block. 
+          †: model trained by our pipeline. 
+          ρ is tuned for DeepMAD-R18.
+          DeepMAD achieves consistent improvements compared with ResNet18/34/50 with the same Params and FLOPs.
+        </p>
+        <img class="summary-img" src="figure/table1.png" style="width:50%;"><br><br>
+        <p style="font-size: 18px">
+          DeepMAD under mobile setting. Top-1 accuracy on ImageNet-1K. ρ is tuned for DeepMAD-B0.
+        </p>
+        <img class="summary-img" src="figure/table2.png" style="width:50%;"><br><br>
+        <p style="font-size: 18px">
+          DeepMAD v.s. SOTA ViT and CNN models on ImageNet-1K. ρ = 0.5 for all DeepMAD models.
+          DeepMAD29M∗: uses 288x288 resolution while the Params and FLOPs keeps the same as DeepMAD-29M.
+        </p>
+        <img class="summary-img" src="figure/table3.png" style="width:50%;"><br><br>
+      </div>
+
+
+      <div class="content">
+        <h2>BibTex</h2>
+        <code> @inproceedings{cvpr2023deepmad,<br>
+          &nbsp;&nbsp;title={Deep{MAD}: Mathematical Architecture Design for Deep Convolutional Neural Network},<br>
+          &nbsp;&nbsp;author={Xuan Shen, Yaohua Wang, Ming Lin, Yilun Huang, Hao Tang, Xiuyu Sun, Yanzhi Wang},<br>
+          &nbsp;&nbsp;booktitle={Conference on Computer Vision and Pattern Recognition 2023},<br>
+          &nbsp;&nbsp;year={2023},<br>
+          &nbsp;&nbsp;url={https://openreview.net/forum?id=HCQqTcy2xG}<br>
+          } </code>
+      </div>
+
+      <div class="content">
+        <h2 style="text-align: center;">We Are Hiring!</h2>
+        <p style="font-size: 18px">
+          If you are interested in AIGC, especially digital humans and video generation, and are eager to take on exciting challenges, then this is the place for you.
+          We are looking for talented, motivated and creative individuals to join our team. If you are interested, please send your CV to <a href="mailto:xiachen.wyh@alibaba-inc.com">Yaohua</a>.
+        </p>
+      </div>
+
+      <br><br>
+      <footer class="footer">
+        <div class="container">
+          <div class="columns is-centered">
+            <!-- <div class="content"> -->
+              website template from <a href="https://dreambooth.github.io/">dreambooth</a>
+            <!-- </div> -->
+          </div>
+        </div>
+      </footer>
+      <br><br>
+  </body>
+</html>

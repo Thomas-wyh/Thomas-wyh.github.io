@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Robust Graph Structure Learning over Images via Multiple Statistical Tests</title>
+    <link href="./public/style.css" rel="stylesheet">
+  </head>
+
+
+  <body>
+      <div class="content">
+        <h1><strong>
+          Robust Graph Structure Learning over Images via Multiple Statistical Tests
+        </strong></h1>
+        <p id="authors">
+          <span><a href=""></a></span>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Yaohua Wang</a><sup style="margin-left: -7px;">1</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Fangyi Zhang</a><sup style="margin-left: -7px;">1</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Ming Lin</a><sup style="margin-left: -7px;">1</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Senzhang Wang</a><sup style="margin-left: -7px;">2</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Xiuyu Sun</a><sup style="margin-left: -7px;">1</sup>
+          <a href="" style="pointer-events: none; text-decoration:none; color: black;">Rong Jin.</a><sup style="margin-left: -7px;">1</sup>
+          <br><br>
+          <span style="font-size: 22px;"><sup>1</sup>Alibaba Group</span>
+          &nbsp;&nbsp;&nbsp;
+          <span style="font-size: 22px"><sup>2</sup>CSU</span>
+        </p>
+        <!-- <br>
+        <img src="figure/demo.png" class="teaser-gif" style="width:100%">
+        <br> -->
+        <p style="text-align: left; font-size: 18px;">
+          <em>
+            A novel method for learning robust graph structures in computer vision tasks where graph structures are not available.
+          </em>
+        </p>
+        <p style="text-align: center; font-size: 20px;">
+          <a href="https://arxiv.org/pdf/2210.03956" target="_blank">[Paper]</a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="./public/battention.bib" target="_blank">[BibTeX]</a>
+          &nbsp;&nbsp;&nbsp;
+          <a href="https://github.com/Thomas-wyh/B-Attention" target="_blank">[Code]</a>
+        </p>
+      </div>
+
+      <div class="content">
+        <h2 style="text-align: center;">Abstract</h2>
+        <p>
+          Graph structure learning aims to learn connectivity in a graph from data. It is particularly important for many computer vision related tasks since no explicit graph structure is available for images for most cases. A natural way to construct a graph among images is to treat each image as a node and assign pairwise image similarities as weights to corresponding edges. It is well known that pairwise similarities between images are sensitive to the noise in feature representations, leading to unreliable graph structures. We address this problem from the viewpoint of statistical tests. By viewing the feature vector of each node as an independent sample, the decision of whether creating an edge between two nodes based on their similarity in feature representation can be thought as a {\it single} statistical test. To improve the robustness in the decision of creating an edge, multiple samples are drawn and integrated by {\it multiple} statistical tests to generate a more reliable similarity measure, consequentially more reliable graph structure. The corresponding elegant matrix form named $\mathcal{B}$\textbf{-Attention} is designed for efficiency. The effectiveness of multiple tests for graph structure learning is verified both theoretically and empirically on multiple clustering and ReID benchmark datasets.
+        </p>
+      </div>
+
+      <div class="content">
+        <h2>Overview of B-Attention</h2>
+        <img class="summary-img" src="figure/method.png" style="width:100%;"><br><br>
+        <p style="font-size: 18px">
+          <strong>Illustration of E(S^k_{i,j}) </strong> in Sim-M on two nodes from different categories and the same category and <strong>the B-Attention mechanism</strong>.
+          The self-attention part is the same as that in Transformers. The Q-Attention part generates A_X and then pay attention to it to generate the A_qart.
+          The two output attention maps are fused as the final output A_band.  
+        </p>
+      </div>
+
+      <div class="content">
+        <h2>B-Attention Results</h2>
+        <p style="font-size: 18px">
+          <strong>Effectiveness of the B-Attention.</strong>
+        </p>
+        <img class="summary-img" src="figure/res1.png" style="width:100%;"><br><br>
+        <!-- <p style="font-size: 18px">
+          Qualitative comparison of <strong>nose</strong> swapping.
+        </p> -->
+        <img class="summary-img" src="figure/res2.png" style="width:100%;"><br><br>
+        <p style="font-size: 18px">
+          <strong>Downstream clustering performance on MS-Celeb.</strong>
+        </p>
+        <img class="summary-img" src="figure/res3.png" style="width:100%;"><br><br>
+        <p style="font-size: 18px">
+          <strong>Case studies on self attention, Q-Attention and B-Attention.</strong>
+          Each entry contains the category and node index, e.g. “C0_node1” means this node belongs to category 0 and the node index is 1.
+          The shade of the colour represents the weight of attention. 
+          The darker the colour, the greater the weight.
+          The data of this case is sampled from the last layer of B-Attention on the MS-Celeb part1.
+        </p>
+        <img class="summary-img" src="figure/show1.png" style="width:100%;"><br><br>
+      </div>
+
+      <div class="content">
+        <h2>BibTex</h2>
+        <code> @inproceedings{wang2022robust,<br>
+          &nbsp;&nbsp;title={Robust Graph Structure Learning over Images via Multiple Statistical Tests},<br>
+          &nbsp;&nbsp;author={Yaohua Wang and Fangyi Zhang and Ming Lin and Senzhang Wang and Xiuyu Sun and Rong Jin},<br>
+          &nbsp;&nbsp;booktitle={Thirty-Sixth Conference on Neural Information Processing Systems},<br>
+          &nbsp;&nbsp;year={2022},<br>
+          &nbsp;&nbsp;url={https://openreview.net/forum?id=VVCI8-PYYv}<br>
+          } </code>
+      </div>
+
+      <div class="content">
+        <h2 style="text-align: center;">We Are Hiring!</h2>
+        <p style="font-size: 18px">
+          If you are interested in AIGC, especially digital humans and video generation, and are eager to take on exciting challenges, then this is the place for you.
+          We are looking for talented, motivated and creative individuals to join our team. If you are interested, please send your CV to <a href="mailto:xiachen.wyh@alibaba-inc.com">Yaohua</a>.
+        </p>
+      </div>
+
+      <br><br>
+      <footer class="footer">
+        <div class="container">
+          <div class="columns is-centered">
+            <!-- <div class="content"> -->
+              website template from <a href="https://dreambooth.github.io/">dreambooth</a>
+            <!-- </div> -->
+          </div>
+        </div>
+      </footer>
+      <br><br>
+  </body>
+</html>
